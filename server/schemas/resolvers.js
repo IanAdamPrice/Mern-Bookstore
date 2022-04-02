@@ -8,22 +8,11 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('savedBooks');
         
           return userData
       }
 
       throw new AuthenticationError('Not logged in');
-    },
-    users: async () => {
-      return User.find()
-        .select('-__v -password')
-        .populate('savedbooks')
-    },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
-        .select('-__v -password')
-        .populate('savedbooks')
     }
   },
 
@@ -50,11 +39,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveBook: async (parent, args, context) => {
+    saveBook: async (parent, { bookData }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: args.input }},
+          { $addToSet: { savedBooks: bookData }},
           { new: true }
         );
 
