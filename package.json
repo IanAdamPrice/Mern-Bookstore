@@ -12,7 +12,7 @@
     "heroku-postbuild": "cd client && npm run build"
   },
   "keywords": [],
-  "author": "Janarthani V Subramaniam",
+  "author": "Ian Price",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
