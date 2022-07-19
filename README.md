@@ -4,7 +4,7 @@
 [Mern Bookstore](https://fast-wave-78429.herokuapp.com/)
 
 ## Description
-This application is a book search engine that allows a user to create a unique profile and save a book to that profile.
+Going to the bookstore can be a fun experience but at times it can be overwhelming. With the Mern Bookstore you will not even have to leave the comfort of your home to find the next book to sink your time into. The full stack application is a book search engine that uses an API call to Google Books along with GraphQl to save a book to your profile.
 
 ## Technologies
 - React
