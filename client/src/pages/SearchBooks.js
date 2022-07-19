@@ -191,11 +191,13 @@ const SearchBooks = () => {
         `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
       );
 
+
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
+      const {items}  = await response.json([]);
+      console.log({items});
 
       const bookData = items.map((book) => ({
         bookId: book.id,
@@ -204,7 +206,7 @@ const SearchBooks = () => {
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
-
+      console.log(bookData)
       setSearchedBooks(bookData);
       setSearchInput('');
     } catch (err) {
